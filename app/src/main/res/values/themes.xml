@@ -17,7 +17,7 @@
         <item name="textInputStyle">@style/editText_PictureOfTheDay</item>
         <item name="bottomAppBarStyle">@style/bottomAppBar_PictureOfTheDay</item>
         <item name="floatingActionButtonStyle">@style/floatingActionButtonStyle_PictureOfTheDay</item>
-        <item name="android:colorBackground">@color/theme_mars_chocolate</item>
+        <item name="android:colorBackground">@color/light_green</item>
 <!--        <item name="materialCardViewStyle">@style/CardView</item>-->
 <!--        <item name="materialButtonStyle">@style/AppButton</item>-->
 <!--        <item name="editTextStyle">@style/editText_mars</item>-->
