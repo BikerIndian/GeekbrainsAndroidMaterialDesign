@@ -11,6 +11,34 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
         <!-- Customize your theme here. -->
+        <!-- Bottom App Bar-->
+        <item name="textInputStyle">@style/editText_PictureOfTheDay</item>
+        <item name="bottomAppBarStyle">@style/bottomAppBar_PictureOfTheDay</item>
+        <item name="floatingActionButtonStyle">@style/floatingActionButtonStyle_PictureOfTheDay</item>
+
+<!--        <item name="android:colorBackground">@color/light_green</item>-->
+
+    </style>
+
+    <style name="Theme.Mars" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/theme_mars_maroon</item>
+        <item name="colorPrimaryVariant">@color/theme_mars_chocolate</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/theme_mars_maroon</item>
+        <item name="colorSecondaryVariant">@color/theme_mars_peru</item>
+        <item name="colorOnSecondary">@color/theme_mars_saddleBrown</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="textInputStyle">@style/editText_Mars</item>
+        <item name="bottomAppBarStyle">@style/bottomAppBar_Mars</item>
+        <item name="floatingActionButtonStyle">@style/floatingActionButtonStyle_Mars</item>
+
+        <item name="android:colorBackground">@color/theme_mars_chocolate</item>
+
     </style>
 </resources>
