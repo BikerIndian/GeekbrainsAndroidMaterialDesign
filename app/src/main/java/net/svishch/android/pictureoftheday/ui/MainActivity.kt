@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         // Загрузка темы
         setTheme(AppTheme.getTheme(getPreferences(MODE_PRIVATE)))
-
+        R.style.Widget_Design_TextInputLayout
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, PictureOfTheDayFragment.newInstance())

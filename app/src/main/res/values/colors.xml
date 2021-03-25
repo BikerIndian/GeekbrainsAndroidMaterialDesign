@@ -8,9 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_blue">#ADD8E6</color>
-    <color name="lime_green">#32CD32</color>
+    <color name="lime_green">#00FF00</color>
     <color name="light_green">#32CD32</color>
     <color name="pale_Turquoise">#32CD32</color>
+    <color name="cornsilk">#FFF8DC</color>
 
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>

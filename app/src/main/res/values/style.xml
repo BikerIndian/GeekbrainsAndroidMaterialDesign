@@ -2,27 +2,27 @@
 <resources>
 
     <!--  PictureOfTheDay  -->
-    <style name="editText_PictureOfTheDay" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <style name="editText_PictureOfTheDay" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!--  цвет фона. -->
         <item name="boxBackgroundColor">@color/pale_Turquoise</item>
         <!-- цвет обводки. -->
         <item name="boxStrokeColor">@color/lime_green</item>
         <!--  цвет цвет подсказки. -->
         <item name="hintTextColor">@color/light_green</item>
+
+        <item name="android:layout_marginTop">5dp</item>
     </style>
 
     <style name="floatingActionButtonStyle_PictureOfTheDay" parent="Widget.Design.FloatingActionButton">
         <item name="backgroundTint">@color/pale_Turquoise</item>
-<!--        <item name="backgroundTint">?attr/colorSecondary</item>-->
-<!--        android:backgroundTint="@color/colorAccent"-->
-
+        <item name="srcCompat">@drawable/ic_plus_fab</item>
     </style>
 
     <style name="bottomAppBar_PictureOfTheDay" parent="Widget.MaterialComponents.BottomAppBar">
         <item name="backgroundTint">@color/black</item>
     </style>
 
-    <style name="editText_Mars" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <style name="editText_Mars" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!--  цвет фона. -->
         <item name="boxBackgroundColor">@color/theme_mars_chocolate</item>
         <!-- цвет обводки. -->
@@ -31,8 +31,9 @@
         <item name="hintTextColor">@color/theme_mars_chocolate</item>
     </style>
 
-    <style name="floatingActionButtonStyle_Mars" parent="android:Widget">
+    <style name="floatingActionButtonStyle_Mars"  parent="Widget.Design.FloatingActionButton">
         <item name="backgroundTint">@color/theme_mars_maroon</item>
+        <item name="srcCompat">@drawable/ic_send</item>
     </style>
 
     <style name="bottomAppBar_Mars" parent="Widget.MaterialComponents.BottomAppBar">
