@@ -4,9 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import net.svishch.android.pictureoftheday.BuildConfig
-import net.svishch.android.pictureoftheday.apiNasa.mars.MarsPhotoData
 import net.svishch.android.pictureoftheday.apiNasa.mars.entity.Photos
-import net.svishch.android.pictureoftheday.ui.picture.PODRetrofitImpl
+import net.svishch.android.pictureoftheday.apiNasa.PODRetrofitImpl
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

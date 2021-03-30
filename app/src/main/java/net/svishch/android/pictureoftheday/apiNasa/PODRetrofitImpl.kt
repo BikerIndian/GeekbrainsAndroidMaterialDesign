@@ -1,4 +1,4 @@
-package net.svishch.android.pictureoftheday.ui.picture
+package net.svishch.android.pictureoftheday.apiNasa
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder

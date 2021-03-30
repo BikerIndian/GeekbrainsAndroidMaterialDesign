@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import net.svishch.android.pictureoftheday.R
 import net.svishch.android.pictureoftheday.ui.picture.AppTheme
-import net.svishch.android.pictureoftheday.ui.picture.PictureOfTheDayFragment
+import net.svishch.android.pictureoftheday.ui.viewPager.DayFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         R.style.Widget_Design_TextInputLayout
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, PictureOfTheDayFragment.newInstance())
+                .replace(R.id.container, DayFragment.newInstance())
                 .commitNow()
         }
     }

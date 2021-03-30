@@ -1,10 +1,10 @@
-package net.svishch.android.pictureoftheday.ui.picture
+package net.svishch.android.pictureoftheday.apiNasa
 
 import net.svishch.android.pictureoftheday.apiNasa.mars.entity.Photos
+import net.svishch.android.pictureoftheday.apiNasa.apod.entity.PODServerResponseData
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
-import retrofit2.http.Url
 
 interface PictureOfTheDayAPI {
 

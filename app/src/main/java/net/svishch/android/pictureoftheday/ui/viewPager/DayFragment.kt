@@ -1,4 +1,4 @@
-package net.svishch.android.pictureoftheday.ui.picture
+package net.svishch.android.pictureoftheday.ui.viewPager
 
 import android.content.Intent
 import android.net.Uri
@@ -14,19 +14,21 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.main_fragment.*
 import net.svishch.android.pictureoftheday.R
-import net.svishch.android.pictureoftheday.ui.viewPager.ApiActivity
+import net.svishch.android.pictureoftheday.apiNasa.apod.DayPhotoData
+import net.svishch.android.pictureoftheday.ui.picture.AppTheme
+import net.svishch.android.pictureoftheday.apiNasa.apod.DayViewModel
 
-class PictureOfTheDayFragment : Fragment() {
+class DayFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
-    private val viewModel: PictureOfTheDayViewModel by lazy {
-        ViewModelProviders.of(this).get(PictureOfTheDayViewModel::class.java)
+    private val viewModel: DayViewModel by lazy {
+        ViewModelProviders.of(this).get(DayViewModel::class.java)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel.getData()
-            .observe(this@PictureOfTheDayFragment, Observer<PictureOfTheDayData> { renderData(it) })
+            .observe(this@DayFragment, Observer<DayPhotoData> { renderData(it) })
     }
 
     override fun onCreateView(
@@ -57,10 +59,10 @@ class PictureOfTheDayFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun renderData(data: PictureOfTheDayData) {
-        when (data) {
-            is PictureOfTheDayData.Success -> {
-                val serverResponseData = data.serverResponseData
+    private fun renderData(photoData: DayPhotoData) {
+        when (photoData) {
+            is DayPhotoData.Success -> {
+                val serverResponseData = photoData.serverResponseData
                 val url = serverResponseData.url
                 if (url.isNullOrEmpty()) {
                     //showError("Сообщение, что ссылка пустая")
@@ -72,18 +74,18 @@ class PictureOfTheDayFragment : Fragment() {
                     text_date.text = serverResponseData.date
 
                     image_view.load(url) {
-                        lifecycle(this@PictureOfTheDayFragment)
+                        lifecycle(this@DayFragment)
                         error(R.drawable.ic_load_error_vector)
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
                 }
             }
-            is PictureOfTheDayData.Loading -> {
+            is DayPhotoData.Loading -> {
                 //showLoading()
             }
-            is PictureOfTheDayData.Error -> {
+            is DayPhotoData.Error -> {
                 //showError(data.error.message)
-                toast(data.error.message)
+                toast(photoData.error.message)
             }
         }
     }
@@ -107,7 +109,7 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = PictureOfTheDayFragment()
+        fun newInstance() = DayFragment()
         private var isMain = true
     }
 }
