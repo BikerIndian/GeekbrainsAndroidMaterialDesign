@@ -1,5 +1,6 @@
 package net.svishch.android.pictureoftheday.ui.picture
 
+import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -14,10 +15,22 @@ class PODRetrofitImpl {
 
     fun getRetrofitImpl(): PictureOfTheDayAPI {
         val podRetrofit = Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
-            .client(createOkHttpClient(PODInterceptor()))
-            .build()
+                .baseUrl(baseUrl)
+                .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
+                .client(createOkHttpClient(PODInterceptor()))
+                .build()
+        return podRetrofit.create(PictureOfTheDayAPI::class.java)
+    }
+
+    fun getMarsPhotos(): PictureOfTheDayAPI {
+        val podRetrofit = Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(GsonConverterFactory.create(GsonBuilder()
+                        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                        .setLenient()
+                        .create()))
+                .client(createOkHttpClient(PODInterceptor()))
+                .build()
         return podRetrofit.create(PictureOfTheDayAPI::class.java)
     }
 

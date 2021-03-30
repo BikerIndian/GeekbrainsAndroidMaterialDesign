@@ -6,17 +6,15 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import coil.api.load
-import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.main_fragment.*
-import net.svishch.android.pictureoftheday.ui.MainActivity
 import net.svishch.android.pictureoftheday.R
+import net.svishch.android.pictureoftheday.ui.viewPager.ApiActivity
 
 class PictureOfTheDayFragment : Fragment() {
 
@@ -51,19 +49,11 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_bottom_bar, menu)
+        inflater.inflate(R.menu.menu_bottom_navigation, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-          when (item.itemId) {
-            R.id.app_bar_fav -> toast("Favourite")
-            android.R.id.home -> {
-                activity?.let {
-                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
-                }
-            }
-        }
-
+        activity?.let { AppTheme.selectThemeOnMenu(item.itemId, it) }
         return super.onOptionsItemSelected(item)
     }
 
@@ -99,25 +89,9 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     private fun setBottomAppBar(view: View) {
-        val context = activity as MainActivity
-        context.setSupportActionBar(view.findViewById(R.id.bottom_app_bar))
+        val context = activity as ApiActivity
+        context.setSupportActionBar(view.findViewById(R.id.topAppBar))
         setHasOptionsMenu(true)
-        fab.setOnClickListener {
-            if (isMain) {
-                isMain = false
-                bottom_app_bar.navigationIcon = null
-                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
-                bottom_app_bar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
-            } else {
-                isMain = true
-                bottom_app_bar.navigationIcon =
-                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
-                bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_plus_fab))
-                bottom_app_bar.replaceMenu(R.menu.menu_bottom_bar)
-            }
-        }
     }
 
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {

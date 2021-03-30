@@ -36,4 +36,5 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
         activity?.getPreferences(AppCompatActivity.MODE_PRIVATE)?.let { AppTheme.saveTheme(it,theme) }
         activity?.recreate()
     }
+
 }
