@@ -37,6 +37,8 @@
         <item name="layout_constraintTop_toTopOf">parent</item>
         <item name="srcCompat">@drawable/ic_no_photo_vector</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_margin">5dp</item>
     </style>
 
     <style name="bottomAppBar" parent="width_100">

@@ -12,6 +12,8 @@
     <color name="light_green">#32CD32</color>
     <color name="pale_Turquoise">#32CD32</color>
     <color name="cornsilk">#FFF8DC</color>
+    <color name="colorAccent40Alfa">#662962FF</color>
+    <color name="tan">#D2B48C</color>
 
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>

@@ -1,4 +1,4 @@
-package net.svishch.android.pictureoftheday.ui.picture
+package net.svishch.android.pictureoftheday.apiNasa.apod.entity
 
 import com.google.gson.annotations.SerializedName
 

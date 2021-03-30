@@ -1,55 +1,58 @@
-package net.svishch.android.pictureoftheday.ui.picture
+package net.svishch.android.pictureoftheday.apiNasa.mars
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import net.svishch.android.pictureoftheday.BuildConfig
+import net.svishch.android.pictureoftheday.apiNasa.mars.entity.Photos
+import net.svishch.android.pictureoftheday.apiNasa.PODRetrofitImpl
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PictureOfTheDayViewModel(
-    private val liveDataForViewToObserve: MutableLiveData<PictureOfTheDayData> = MutableLiveData(),
+class MarsViewModel(
+    private val liveDataForViewToObserve: MutableLiveData<MarsPhotoData> = MutableLiveData(),
     private val retrofitImpl: PODRetrofitImpl = PODRetrofitImpl()
 ) :
     ViewModel() {
 
-    fun getData(): LiveData<PictureOfTheDayData> {
+    fun getMarsData(): LiveData<MarsPhotoData> {
         sendServerRequest()
         return liveDataForViewToObserve
     }
 
     private fun sendServerRequest() {
-        liveDataForViewToObserve.value = PictureOfTheDayData.Loading(null)
+        liveDataForViewToObserve.value = MarsPhotoData.Loading(null)
         val apiKey: String = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
-            PictureOfTheDayData.Error(Throwable("You need API key"))
+            MarsPhotoData.Error(Throwable("You need API key"))
         } else {
-            retrofitImpl.getRetrofitImpl().getPictureOfTheDay(apiKey).enqueue(object :
-                Callback<PODServerResponseData> {
+            retrofitImpl.getMarsPhotos().getPhotos(apiKey).enqueue(object :
+                Callback<Photos> {
                 override fun onResponse(
-                    call: Call<PODServerResponseData>,
-                    response: Response<PODServerResponseData>
+                    call: Call<Photos>,
+                    response: Response<Photos>
                 ) {
                     if (response.isSuccessful && response.body() != null) {
                         liveDataForViewToObserve.value =
-                            PictureOfTheDayData.Success(response.body()!!)
+                                MarsPhotoData.Success(response.body()!!)
                     } else {
                         val message = response.message()
                         if (message.isNullOrEmpty()) {
                             liveDataForViewToObserve.value =
-                                PictureOfTheDayData.Error(Throwable("Unidentified error"))
+                                    MarsPhotoData.Error(Throwable("Unidentified error"))
                         } else {
                             liveDataForViewToObserve.value =
-                                PictureOfTheDayData.Error(Throwable(message))
+                                    MarsPhotoData.Error(Throwable(message))
                         }
                     }
                 }
 
-                override fun onFailure(call: Call<PODServerResponseData>, t: Throwable) {
-                    liveDataForViewToObserve.value = PictureOfTheDayData.Error(t)
+                override fun onFailure(call: Call<Photos>, t: Throwable) {
+                    liveDataForViewToObserve.value = MarsPhotoData.Error(t)
                 }
             })
         }
     }
+
 }

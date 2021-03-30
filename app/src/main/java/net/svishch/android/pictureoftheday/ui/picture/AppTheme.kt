@@ -1,6 +1,8 @@
 package net.svishch.android.pictureoftheday.ui.picture
 
 import android.content.SharedPreferences
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import net.svishch.android.pictureoftheday.R
 
 class AppTheme {
@@ -26,5 +28,19 @@ class AppTheme {
                 else  ->  return R.style.Theme_PictureOfTheDay
             }
         }
+
+        lateinit var activity : FragmentActivity
+        fun selectThemeOnMenu(itemId: Int, activity : FragmentActivity){
+            this.activity = activity
+            when (itemId) {
+                R.id.navigation_one -> selectTheme(THEME_PICTURE_OF_THE_DAY)
+                R.id.navigation_two -> selectTheme(THEME_MARS)
+            }
+        }
+        private fun selectTheme(theme: Int){
+            activity?.getPreferences(AppCompatActivity.MODE_PRIVATE)?.let {saveTheme(it,theme) }
+            activity?.recreate()
+        }
+
     }
 }
