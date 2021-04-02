@@ -3,9 +3,12 @@ package net.svishch.android.pictureoftheday.ui.viewPager
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.transition.Slide
+import android.transition.TransitionManager
 import android.view.*
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -29,6 +32,12 @@ class DayFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel.getData()
             .observe(this@DayFragment, Observer<DayPhotoData> { renderData(it) })
+
+        // Анимация поля ввода wiki
+        wiki_button.setOnClickListener {
+            TransitionManager.beginDelayedTransition(main, Slide(Gravity.END).setDuration(600L))
+            input_layout.visibility = if (!input_layout.isVisible) View.VISIBLE else View.GONE
+        }
     }
 
     override fun onCreateView(
