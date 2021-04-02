@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PictureOfTheDay">
 
-        <activity android:name=".ui.viewPager.ApiActivity">
+        <activity android:name=".ui.viewPager.ApiActivity"
+            android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

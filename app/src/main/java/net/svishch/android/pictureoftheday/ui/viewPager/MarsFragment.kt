@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.fragment_mars.*
-import kotlinx.android.synthetic.main.main_fragment.*
 import net.svishch.android.outerspace.ui.adapter.MarsPhotosRVAdapter
 import net.svishch.android.pictureoftheday.R
 import net.svishch.android.pictureoftheday.apiNasa.mars.MarsPhotoData
