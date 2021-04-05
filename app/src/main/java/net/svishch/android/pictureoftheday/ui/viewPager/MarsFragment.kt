@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.fragment_mars.*
+import kotlinx.android.synthetic.main.item_mars_photos.*
 import net.svishch.android.outerspace.ui.adapter.MarsPhotosRVAdapter
 import net.svishch.android.pictureoftheday.R
 import net.svishch.android.pictureoftheday.apiNasa.mars.MarsPhotoData
@@ -16,6 +17,7 @@ import net.svishch.android.pictureoftheday.apiNasa.mars.MarsViewModel
 
 
 class MarsFragment : Fragment() {
+
 
     private val viewModel: MarsViewModel by lazy {
         ViewModelProviders.of(this).get(MarsViewModel::class.java)
@@ -26,7 +28,12 @@ class MarsFragment : Fragment() {
         viewModel.getMarsData()
                 .observe(this@MarsFragment, { renderData(it) })
 
-        rv_mars_photos.layoutManager = GridLayoutManager(context, 2);
+        rv_mars_photos.layoutManager = LinearLayoutManager(context)
+
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
     }
 
@@ -34,6 +41,7 @@ class MarsFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?,
     ): View? {
+
         return inflater.inflate(R.layout.fragment_mars, container, false)
     }
 
