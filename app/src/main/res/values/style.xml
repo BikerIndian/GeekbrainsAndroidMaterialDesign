@@ -4,11 +4,11 @@
     <!--  PictureOfTheDay  -->
     <style name="editText_PictureOfTheDay" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!--  цвет фона. -->
-        <item name="boxBackgroundColor">@color/pale_Turquoise</item>
+        <item name="boxBackgroundColor">@color/light_blue</item>
         <!-- цвет обводки. -->
-        <item name="boxStrokeColor">@color/lime_green</item>
+        <item name="boxStrokeColor">@color/colorAccent40Alfa</item>
         <!--  цвет цвет подсказки. -->
-        <item name="hintTextColor">@color/light_green</item>
+        <item name="hintTextColor">@color/black</item>
 
         <item name="android:layout_marginTop">5dp</item>
     </style>
@@ -28,7 +28,7 @@
         <!-- цвет обводки. -->
         <item name="boxStrokeColor">@color/theme_mars_chocolate</item>
         <!--  цвет цвет подсказки. -->
-        <item name="hintTextColor">@color/theme_mars_chocolate</item>
+        <item name="hintTextColor">@color/black</item>
     </style>
 
     <style name="floatingActionButtonStyle_Mars"  parent="Widget.Design.FloatingActionButton">
