@@ -5,12 +5,12 @@
         <item
             android:id="@+id/navigation_one"
             android:icon="@drawable/ic_archive"
-            android:title="Обычная тема"
+            android:title="@string/menu_theme_normal"
             app:showAsAction="never" />
         <item
             android:id="@+id/navigation_two"
             android:icon="@drawable/ic_send"
-            android:title="тема Марс"
+            android:title="@string/menu_theme_mars"
             app:showAsAction="never" />
     </group>
 </menu>

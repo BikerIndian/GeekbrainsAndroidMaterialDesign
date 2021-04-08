@@ -16,10 +16,12 @@ import coil.api.load
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.item_mars_photos.view.*
 import net.svishch.android.pictureoftheday.R
 import net.svishch.android.pictureoftheday.apiNasa.apod.DayPhotoData
 import net.svishch.android.pictureoftheday.ui.picture.AppTheme
 import net.svishch.android.pictureoftheday.apiNasa.apod.DayViewModel
+import net.svishch.android.pictureoftheday.util.ImgZoom
 
 class DayFragment : Fragment() {
 
@@ -38,6 +40,8 @@ class DayFragment : Fragment() {
             TransitionManager.beginDelayedTransition(main, Slide(Gravity.END).setDuration(600L))
             input_layout.visibility = if (!input_layout.isVisible) View.VISIBLE else View.GONE
         }
+
+        ImgZoom(image_view,main)
     }
 
     override fun onCreateView(
