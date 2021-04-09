@@ -18,6 +18,7 @@ import net.svishch.android.pictureoftheday.apiNasa.mars.entity.Photo
 import net.svishch.android.pictureoftheday.ui.viewPager.adapter.ItemTouchHelperAdapter
 import net.svishch.android.pictureoftheday.ui.viewPager.adapter.ItemTouchHelperViewHolder
 import net.svishch.android.pictureoftheday.ui.viewPager.adapter.OnStartDragListener
+import net.svishch.android.pictureoftheday.ui.viewPager.adapter.TextStyleSpanMars
 
 
 class MarsPhotosRVAdapter(
@@ -69,26 +70,30 @@ class MarsPhotosRVAdapter(
         }
 
         fun setInfoPhoto(photo: Photo) = with(containerView) {
-            marsInfoPhoto.text = String.format(
-                "Photo id: %s \n\n" +
-                        "Camera id: %s  \n" +
-                        "Camera name: %s  \n" +
-                        "Camera full name: %s  \n\n" +
-                        "Rover id: %s  \n" +
-                        "Rover name: %s  \n" +
-                        "Rover landing date: %s  \n" +
-                        "Rover launch date: %s  \n" +
-                        "Rover status: %s  \n",
-                photo.id,
-                photo.camera?.id,
-                photo.camera?.name,
-                photo.camera?.fullName,
-                photo.rover?.id,
-                photo.rover?.name,
-                photo.rover?.landingDate,
-                photo.rover?.launchDate,
-                photo.rover?.status,
+            val text = String.format(
+                "%s %s\n\n" +
+                        "%s %s\n" +
+                        "%s %s\n" +
+                        "%s %s\n\n" +
+
+                        "%s %s\n" +
+                        "%s %s\n" +
+                        "%s %s\n" +
+                        "%s %s\n" +
+                        "%s %s\n",
+
+                context.getString(R.string.photo_id), photo.id,
+                context.getString(R.string.camera_id), photo.camera?.id,
+                context.getString(R.string.camera_name), photo.camera?.name,
+                context.getString(R.string.camera_full_name), photo.camera?.fullName,
+                context.getString(R.string.rover_id), photo.rover?.id,
+                context.getString(R.string.rover_name), photo.rover?.name,
+                context.getString(R.string.rover_landing_date), photo.rover?.landingDate,
+                context.getString(R.string.rover_launch_date), photo.rover?.launchDate,
+                context.getString(R.string.rover_status), photo.rover?.status,
             )
+
+            marsInfoPhoto.text = TextStyleSpanMars(context, text).getSpanInfoPhoto()
         }
 
         override fun onItemSelected() {
@@ -149,7 +154,7 @@ class MarsPhotosRVAdapter(
 
 
         if (holder.isExpanded) {
-            holder.containerView.img_mars_photo_info.visibility = View.VISIBLE
+            holder.containerView.marsInfoPhoto.visibility = View.GONE
             holder.containerView.dragHandleImageView.visibility = View.GONE
             holder.containerView.removeItemImageView.visibility = View.GONE
 
@@ -158,6 +163,12 @@ class MarsPhotosRVAdapter(
             holder.containerView.marsInfoPhoto.visibility = View.GONE
             holder.containerView.dragHandleImageView.visibility = View.VISIBLE
             holder.containerView.removeItemImageView.visibility = View.VISIBLE
+
+            android.transition.TransitionManager.beginDelayedTransition(
+                holder.containerView.iv_LinearLayout,
+                Slide(Gravity.END).setDuration(600L)
+            )
+            holder.containerView.marsInfoPhoto.visibility = View.VISIBLE
         }
         img.scaleType =
             if (holder.isExpanded) {
