@@ -12,4 +12,15 @@
 
     <string name="menu_theme_mars">Тема марс</string>
     <string name="menu_theme_normal">Обычная тема</string>
+
+    <string name="photo_id">Photo id:</string>
+    <string name="camera_id">Camera id:</string>
+    <string name="camera_name">Camera name:</string>
+    <string name="camera_full_name">Camera full name:</string>
+    <string name="rover_id">Rover id:</string>
+    <string name="rover_name">Rover name:</string>
+    <string name="rover_landing_date">Rover landing date:</string>
+    <string name="rover_launch_date">Rover launch date:</string>
+    <string name="rover_status">Rover status:</string>
+
 </resources>
