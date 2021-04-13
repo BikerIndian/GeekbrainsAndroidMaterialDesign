@@ -24,6 +24,7 @@
     <color name="theme_mars_brown">#A52A2A</color>
     <color name="theme_mars_sienna">#A0522D</color>
     <color name="theme_mars_saddleBrown">#8B4513</color>
-    <color name="theme_mars_chocolate">#D2691E</color>
+    <color name="theme_mars_chocolate">#c62828</color>
     <color name="theme_mars_peru">#CD853F</color>
+    <color name="theme_mars_menu">#ff5f52</color>
 </resources>

@@ -18,7 +18,7 @@ import net.svishch.android.pictureoftheday.apiNasa.mars.entity.Photo
 import net.svishch.android.pictureoftheday.ui.viewPager.adapter.ItemTouchHelperAdapter
 import net.svishch.android.pictureoftheday.ui.viewPager.adapter.ItemTouchHelperViewHolder
 import net.svishch.android.pictureoftheday.ui.viewPager.adapter.OnStartDragListener
-import net.svishch.android.pictureoftheday.ui.viewPager.adapter.TextStyleSpanMars
+import net.svishch.android.pictureoftheday.ui.viewPager.adapter.TextStyleMarsHelper
 
 
 class MarsPhotosRVAdapter(
@@ -93,7 +93,7 @@ class MarsPhotosRVAdapter(
                 context.getString(R.string.rover_status), photo.rover?.status,
             )
 
-            marsInfoPhoto.text = TextStyleSpanMars(context, text).getSpanInfoPhoto()
+            marsInfoPhoto.text = TextStyleMarsHelper(context, text).getSpanInfoPhoto()
         }
 
         override fun onItemSelected() {

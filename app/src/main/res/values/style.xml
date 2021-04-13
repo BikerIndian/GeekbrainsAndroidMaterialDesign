@@ -24,7 +24,7 @@
 
     <style name="editText_Mars" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!--  цвет фона. -->
-        <item name="boxBackgroundColor">@color/theme_mars_chocolate</item>
+        <item name="boxBackgroundColor">@color/white</item>
         <!-- цвет обводки. -->
         <item name="boxStrokeColor">@color/theme_mars_chocolate</item>
         <!--  цвет цвет подсказки. -->
