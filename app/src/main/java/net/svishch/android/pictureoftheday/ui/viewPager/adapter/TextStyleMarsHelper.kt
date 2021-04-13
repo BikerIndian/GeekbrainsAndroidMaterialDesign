@@ -7,7 +7,7 @@ import android.text.SpannableString
 import android.text.style.StyleSpan
 import net.svishch.android.pictureoftheday.R
 
-class TextStyleSpanMars(val context: Context ,val text : String) {
+class TextStyleMarsHelper(val context: Context, val text : String) {
     val spannable = SpannableString(text)
 
     fun getSpanInfoPhoto(): SpannableString {

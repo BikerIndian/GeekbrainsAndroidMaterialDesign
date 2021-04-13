@@ -21,6 +21,9 @@ class ApiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Загрузка темы
+        setTheme(AppTheme.getTheme(getPreferences(MODE_PRIVATE)))
+
         setContentView(R.layout.activity_api)
         view_pager.adapter = ViewPagerAdapter(supportFragmentManager)
         tab_layout.setupWithViewPager(view_pager)

@@ -14,6 +14,7 @@
     <color name="cornsilk">#FFF8DC</color>
     <color name="colorAccent40Alfa">#662962FF</color>
     <color name="tan">#D2B48C</color>
+    <color name="darkBlue">#191970</color>
 
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
@@ -24,6 +25,7 @@
     <color name="theme_mars_brown">#A52A2A</color>
     <color name="theme_mars_sienna">#A0522D</color>
     <color name="theme_mars_saddleBrown">#8B4513</color>
-    <color name="theme_mars_chocolate">#D2691E</color>
+    <color name="theme_mars_chocolate">#c62828</color>
     <color name="theme_mars_peru">#CD853F</color>
+    <color name="theme_mars_menu">#ff5f52</color>
 </resources>

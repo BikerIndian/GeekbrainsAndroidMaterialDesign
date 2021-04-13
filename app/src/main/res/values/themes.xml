@@ -19,6 +19,7 @@
         <item name="bottomAppBarStyle">@style/bottomAppBar_PictureOfTheDay</item>
         <item name="floatingActionButtonStyle">@style/floatingActionButtonStyle_PictureOfTheDay</item>
 
+        <item name="colorMenu">@color/purple_200</item>
 <!--        <item name="android:colorBackground">@color/light_green</item>-->
 
     </style>
@@ -35,12 +36,13 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:fontFamily">@font/meddon</item>
+        <item name="android:fontFamily">@font/abril_fatface</item>
         <item name="textInputStyle">@style/editText_Mars</item>
         <item name="bottomAppBarStyle">@style/bottomAppBar_Mars</item>
         <item name="floatingActionButtonStyle">@style/floatingActionButtonStyle_Mars</item>
 
-        <item name="android:colorBackground">@color/theme_mars_chocolate</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorMenu">@color/theme_mars_menu</item>
 
     </style>
 </resources>
